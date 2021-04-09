@@ -5,13 +5,31 @@ import { uid } from 'react-uid';
 import { useState, useEffect } from 'react';
 
 function App() {
+  const BASE_URL = 'http://localhost:3000/tasks/';
+
   const [tasks, setTasks] = useState([]);
 
   const [isFormVisible, onShowFormVisibility] = useState(false);
 
-  const addTask = task => setTasks([...tasks, { id: uid(task), ...task }]);
+  const addTask = async task => {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    });
 
-  const deleteTask = id => setTasks(tasks.filter(task => task.id !== id));
+    const data = await res.json();
+    setTasks([...tasks, data]);
+  };
+
+  const deleteTask = async id => {
+    await fetch(`${BASE_URL}${id}`, {
+      method: 'DELETE',
+    });
+    setTasks(tasks.filter(task => task.id !== id));
+  };
 
   const toggleTask = id =>
     setTasks(
@@ -29,7 +47,7 @@ function App() {
   }, []);
 
   const fetchProjects = async () => {
-    const res = await fetch('http://localhost:3000/tasks');
+    const res = await fetch(BASE_URL);
     const data = await res.json();
     return data;
   };
