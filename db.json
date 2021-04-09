@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "text": "new React App",
-      "date": "May 19th, 2021",
-      "reminder": true,
-      "id": 1
-    },
-    {
       "text": "write new blog posts",
       "date": "Apr 13th, 2021",
       "reminder": true,

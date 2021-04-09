@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-indigo-300">
-      <div className="w-full max-w-2xl bg-gray-100 p-4 md:p-8 rounded-md shadow-xl">
+      <div className="w-full max-w-2xl bg-gray-100 p-4 md:p-8 mx-2 md:mx-0 rounded-md shadow-xl">
         <div className="w-full flex flex-col bg-white rounded-md shadow-sm">
           <Header
             title="Inbox"
