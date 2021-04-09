@@ -5,7 +5,7 @@ const Button = ({ text, onClick, isFormVisible }) => {
   return (
     <button
       onClick={onClick}
-      className="group flex items-center justify-center space-x-2 text-indigo-500 hover:text-indigo-400 font-medium text-sm focus:border-transparent focus:outline-none"
+      className="group flex items-center justify-center space-x-2 text-indigo-500 hover:text-indigo-400 font-medium text-sm focus:border-transparent focus:outline-none select-none"
     >
       <div className="rounded-full text-white w-8 h-8 bg-indigo-500 group-hover:bg-indigo-400 text-xl flex items-center justify-center">
         {!isFormVisible ? (
