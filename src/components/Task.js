@@ -15,11 +15,13 @@ const Task = ({ task, onDelete, onToggle }) => {
         <span className="text-md font-bold text-gray-700">{task.text}</span>
         <span className="text-xs text-gray-400">{task.date}</span>
       </div>
-      <FaTimes
-        className="text-red-400 fill-current cursor-pointer m-2 hover:text-red-300"
-        aria-label="delete task"
-        onClick={() => onDelete(task.id)}
-      />
+      <div className="p-1 bg-white shadow-md rounded-full">
+        <FaTimes
+          className="text-red-400 fill-current cursor-pointer hover:text-red-300"
+          aria-label="delete task"
+          onClick={() => onDelete(task.id)}
+        />
+      </div>
     </div>
   );
 };

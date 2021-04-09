@@ -7,7 +7,7 @@ const Button = ({ text, onClick, isFormVisible }) => {
       onClick={onClick}
       className="group flex items-center justify-center space-x-2 text-indigo-500 hover:text-indigo-400 font-medium text-sm focus:border-transparent focus:outline-none select-none"
     >
-      <div className="rounded-full text-white w-5 h-5 md:w-8 md:h-8 bg-indigo-500 group-hover:bg-indigo-400 text-xl flex items-center justify-center">
+      <div className="rounded-full text-white w-5 h-5 md:w-8 md:h-8 bg-indigo-500 group-hover:bg-indigo-400 text-xl flex items-center justify-center shadow-md">
         {!isFormVisible ? (
           <FaPlus className="color-white fill-current text-xs" />
         ) : (
