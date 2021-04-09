@@ -3,7 +3,6 @@
 This project was bootstrapped with Create React App
 
 - TailwindCSS for styling the components
-- uid - generating unique keys for the user defined projects
 - json server for mocking backend
 
 ## Available Scripts
