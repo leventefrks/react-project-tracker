@@ -3,7 +3,9 @@ import Button from './Button';
 import { FaInbox } from 'react-icons/fa';
 
 const Header = ({ title, onShowForm, isFormVisible }) => {
-  const PROJECT_LABEL = 'project';
+  const PROJECT_TEXT = 'project';
+
+  const buttonText = `${isFormVisible ? 'close' : 'new'} ${PROJECT_TEXT}`;
 
   return (
     <div className="w-full flex items-center justify-between py-6 px-8 bg-white rounded-md select-none">
@@ -12,7 +14,7 @@ const Header = ({ title, onShowForm, isFormVisible }) => {
         <span>{title}</span>
       </h1>
       <Button
-        text={isFormVisible ? `close ${PROJECT_LABEL}` : `new ${PROJECT_LABEL}`}
+        text={buttonText}
         onClick={onShowForm}
         isFormVisible={isFormVisible}
       />
