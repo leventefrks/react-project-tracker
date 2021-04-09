@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 const Task = ({ task, onDelete, onToggle }) => {
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2 select-none ${
+      className={`flex items-center justify-between px-4 py-2 hover:bg-indigo-50 select-none ${
         task.reminder
           ? 'border-l-4 border-green-500 rounded-tl rounded-bl-sm'
           : ''
