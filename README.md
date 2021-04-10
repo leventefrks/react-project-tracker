@@ -3,6 +3,7 @@
 This project was bootstrapped with Create React App
 
 - TailwindCSS for styling the components
+- React Icons
 - json server with axios for mocking backend
 
 ## Available Scripts
