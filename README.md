@@ -3,7 +3,7 @@
 This project was bootstrapped with Create React App
 
 - TailwindCSS for styling the components
-- json server for mocking backend
+- json server with axios for mocking backend
 
 ## Available Scripts
 
