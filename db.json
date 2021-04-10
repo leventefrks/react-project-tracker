@@ -1,3 +1,28 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "text": "new svelte",
+      "date": "tomorrow",
+      "reminder": true,
+      "id": 1
+    },
+    {
+      "text": "new react app",
+      "date": "fdf",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "new angular",
+      "date": "fdsf",
+      "reminder": true,
+      "id": 3
+    },
+    {
+      "text": "new vue ",
+      "date": "fsdfsf",
+      "reminder": true,
+      "id": 4
+    }
+  ]
 }
