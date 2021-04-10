@@ -3,6 +3,7 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import { uid } from 'react-uid';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
   const BASE_URL = 'http://localhost:3000/tasks/';
@@ -12,22 +13,16 @@ function App() {
   const [isFormVisible, onShowFormVisibility] = useState(false);
 
   const addTask = async task => {
-    const res = await fetch(BASE_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(task),
-    });
-
-    const data = await res.json();
-    setTasks([...tasks, data]);
+    try {
+      const { data } = await axios.post(BASE_URL, task);
+      setTasks([...tasks, data]);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteTask = async id => {
-    await fetch(`${BASE_URL}${id}`, {
-      method: 'DELETE',
-    });
+    await axios.delete(`${BASE_URL}${id}`);
     setTasks(tasks.filter(task => task.id !== id));
   };
 
@@ -43,13 +38,17 @@ function App() {
       const data = await fetchProjects();
       setTasks(data);
     };
+
     getProjects();
   }, []);
 
   const fetchProjects = async () => {
-    const res = await fetch(BASE_URL);
-    const data = await res.json();
-    return data;
+    try {
+      const { data } = await axios.get(BASE_URL);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
