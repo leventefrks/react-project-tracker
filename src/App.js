@@ -1,7 +1,9 @@
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import { uid } from 'react-uid';
+import Footer from './components/Footer';
+import Details from './components/Details';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from './constants';
@@ -74,21 +76,39 @@ function App() {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-indigo-300">
-      <div className="w-full max-w-2xl bg-gray-100 p-4 md:p-8 mx-2 md:mx-0 rounded-md shadow-xl">
-        <div className="w-full flex flex-col bg-white rounded-md shadow-sm">
-          <Header
-            title="Inbox"
-            onShowForm={() => onShowFormVisibility(!isFormVisible)}
-            isFormVisible={isFormVisible}
-          />
-          {isFormVisible && <AddTask onAdd={addTask} />}
-          {hasTasks ? (
-            <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleTask} />
-          ) : (
-            <p className="px-8 pb-4 text-gray-400">No projects to show...</p>
-          )}
+      <BrowserRouter>
+        <div className="w-full max-w-2xl bg-gray-100 px-4 pt-4 md:px-8 md:pt-8 pb-2 mx-2 md:mx-0 rounded-md shadow-xl">
+          <div className="w-full flex flex-col bg-white rounded-md shadow-sm">
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <>
+                  <Header
+                    title="Inbox"
+                    onShowForm={() => onShowFormVisibility(!isFormVisible)}
+                    isFormVisible={isFormVisible}
+                  />
+                  {isFormVisible && <AddTask onAdd={addTask} />}
+                  {hasTasks ? (
+                    <Tasks
+                      tasks={tasks}
+                      onDelete={deleteTask}
+                      onToggle={toggleTask}
+                    />
+                  ) : (
+                    <p className="px-8 pb-4 text-gray-400">
+                      No projects to show...
+                    </p>
+                  )}
+                </>
+              )}
+            />
+          </div>
+          <Route path="/details" component={Details} />
+          <Footer />
         </div>
-      </div>
+      </BrowserRouter>
     </div>
   );
 }
